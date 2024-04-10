@@ -1,6 +1,6 @@
 # springboot-ecommerce-web
 
-An online shop web-app
+An online shop web-app using REST APIs
 
 Tech: 
 - Framework: Spring, Spring boot, Hibernate
