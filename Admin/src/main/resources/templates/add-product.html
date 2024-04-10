@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="/fragments::header">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul th:replace="/fragments::sidebar">
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="/fragments::topbar">
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <form th:action="@{/save-product}" th:method="post" th:object="${product}" enctype="multipart/form-data"
+                      class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>ADD PRODUCTS</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="name">PRODUCT NAME</label>
+                            <div class="col-md-4">
+                                <input id="name"  name="name"
+                                       placeholder="PRODUCT NAME"
+                                       class="form-control input-md" required="" type="text">
+
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="category">PRODUCT CATEGORY</label>
+                            <div class="col-md-4">
+                                <select id="category" name="category"
+                                        class="form-control">
+                                    <option th:value="null"> - SELECT -</option>
+                                    <option th:each="category : ${categories}" th:value="${category.id}"
+                                            th:text="${category.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                            <div class="col-md-4">
+                                <input id="description"  name="description"
+                                       placeholder="PRODUCT DESCRIPTION"
+                                       class="form-control input-md" required="" type="text">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="currentQuantity">AVAILABLE QUANTITY</label>
+                            <div class="col-md-4">
+                                <input id="currentQuantity"  name="currentQuantity"
+                                       class="form-control input-md" required=""
+                                       type="text">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="costPrice">PRICE</label>
+                            <div class="col-md-4">
+                                <input id="costPrice"  name="costPrice"
+                                       placeholder="PRICE" class="form-control input-md" required=""
+                                       type="text">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <!-- File Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="imageProduct">IMAGE PRODUCT</label>
+                                    <div class="col-md-4">
+                                        <input id="imageProduct" name="imageProduct" class="input-file" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </fieldset>
+                </form>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="/fragments::footer">
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a th:replace="/fragments::scroll">
+</a>
+
+<!-- Logout Modal-->
+
+<!-- Add modal-->
+
+
+<!-- Change Name category Modal-->
+
+
+<div th:replace="/fragments::scripts"></div>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</body>
+
+</html>
